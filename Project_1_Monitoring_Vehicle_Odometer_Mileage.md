@@ -22,7 +22,7 @@ The data source captures vehicle information every 2 minutes, including the book
 
 The following BigQuery SQL query generates a table with the required calculations:
 
-```java
+```sql
 WITH 
   mileage_data AS (
     SELECT    
@@ -47,7 +47,7 @@ FROM (
   SELECT
     *,
     ROUND(end_odometer - start_odometer, 0) AS total_km  -- Calculate total kilometers
-  FROM mileage_data
+FROM mileage_data
   WHERE month_rank = 1                        -- Only include the first record of each month
     AND order_id IS NOT NULL              -- Ensure order_id is not null
   ORDER BY order_id)                             -- Order the results by order_id
