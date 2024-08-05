@@ -1,0 +1,41 @@
+# Monitoring Vehicle Odometer Mileage for Monthly Bookings
+
+## Business Problem:
+A client needs to monitor the total mileage recorded on vehicle odometers at the end of each month for every booking/user. Vehicles can be booked for periods extending over several months and the client wants to identify both bookings and users who exceed a specific mileage threshold each month. The goal is to determine the odometer readings at the beginning and end of each month during the booking period.
+
+The data source captures vehicle information every 2 minutes including the booking status (Order ID) user ID (if booked) and the vehicle's odometer reading. To meet the client's requirements we need to extract and calculate the odometer readings at the start and end of each month for each booking and subtract the last measure by the first.
+
+## BigQuery SQL Query
+The following BigQuery SQL query generates a table with the required calculations:
+
+```sql
+WITH 
+  cte AS (
+  SELECT    
+    order_id,
+    user_id,
+    vehicle_id,
+    time,
+    FIRST_VALUE(mileage) OVER w1 AS start_odometer,
+    LAST_VALUE(mileage) OVER w1 AS last_odometer,
+    ROW_NUMBER() OVER(PARTITION BY order_id, EXTRACT(MONTH FROM time) ORDER BY time ASC) AS rank_order
+  FROM
+    `data-analyst-326910.vehicle_km.rt2_corrected3`  
+  WINDOW
+    w1 AS(
+    PARTITION BY order_id, EXTRACT(MONTH FROM time)
+    ORDER BY time ASC ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) )
+
+SELECT
+  * EXCEPT(rank_order),
+  ROUND(last_odometer - start_odometer) AS total_km
+FROM (
+  SELECT
+    *
+  FROM
+    cte
+  WHERE
+    rank_order = 1
+    AND order_id IS NOT NULL
+  ORDER BY
+    order_id)
