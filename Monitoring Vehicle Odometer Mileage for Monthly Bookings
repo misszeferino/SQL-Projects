@@ -1,14 +1,112 @@
-# Monitoring Vehicle Odometer Mileage for Monthly Bookings
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Odometer Mileage Monitoring</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77aaff 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        section {
+            padding: 20px;
+            background: #fff;
+        }
+        .dark {
+            padding: 15px;
+            background: #333;
+            color: #fff;
+            margin-top: 10px;
+        }
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #fff;
+            background-color: #333;
+            text-align: center;
+        }
+        .code-block {
+            background: #f4f4f4;
+            border-left: 4px solid #333;
+            padding: 10px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .code-block pre {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>SQL Queries Repository</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-## Business Problem:
-A client needs to monitor the total mileage recorded on vehicle odometers at the end of each month for every booking/user. Vehicles can be booked for periods extending over several months and the client wants to identify both bookings and users who exceed a specific mileage threshold each month. The goal is to determine the odometer readings at the beginning and end of each month during the booking period.
+    <section id="introduction" class="container">
+        <h2>Introduction</h2>
+        <p>This repository contains a collection of SQL queries used for various school projects and real-life scenarios encountered during my work as a Data Analyst. Each query is carefully crafted and documented to facilitate understanding and reuse.</p>
+    </section>
 
-The data source captures vehicle information every 2 minutes including the booking status (Order ID) user ID (if booked) and the vehicle's odometer reading. To meet the client's requirements we need to extract and calculate the odometer readings at the start and end of each month for each booking and subtract the last measure by the first.
-
-## BigQuery SQL Query
-The following BigQuery SQL query generates a table with the required calculations:
-
-```sql
+    <section id="projects" class="container">
+        <h2>Project: Monitoring Vehicle Odometer Mileage for Monthly Bookings</h2>
+        <h3>Business Problem</h3>
+        <p>A client needs to monitor the total mileage recorded on vehicle odometers at the end of each month for every booking/user. Vehicles can be booked for periods extending over several months, and the client wants to identify both bookings and users who exceed a specific mileage threshold each month. The goal is to determine the odometer readings at the beginning and end of each month during the booking period.</p>
+        
+        <h3>SQL Query</h3>
+        <div class="code-block">
+            <pre>
 WITH 
   cte AS (
   SELECT    
@@ -29,13 +127,39 @@ WITH
 SELECT
   * EXCEPT(rank_order),
   ROUND(last_odometer - start_odometer) AS total_km
-FROM (
-  SELECT
-    *
-  FROM
-    cte
-  WHERE
-    rank_order = 1
-    AND order_id IS NOT NULL
-  ORDER BY
-    order_id)
+FROM
+  cte
+WHERE
+  rank_order = 1
+  AND order_id IS NOT NULL
+ORDER BY
+  order_id;
+            </pre>
+        </div>
+
+        <h3>Explanation</h3>
+        <p><strong>CTE (Common Table Expression):</strong></p>
+        <ul>
+            <li>Retrieves necessary details from the main table including <code>order_id</code>, <code>user_id</code>, <code>vehicle_id</code>, <code>time</code>, and <code>mileage</code>.</li>
+            <li>Calculates the first and last odometer readings for each booking within each month using window functions.</li>
+            <li>Ranks the records within each order and month to ensure we are capturing the start and end readings correctly.</li>
+        </ul>
+
+        <p><strong>Final Query:</strong></p>
+        <ul>
+            <li>Computes the total kilometers traveled within the month (<code>total_km</code>) by subtracting the starting odometer reading from the ending odometer reading.</li>
+            <li>Filters the records to include only the first-ranked entries for each order within each month (to get the initial and final readings).</li>
+            <li>Ensures only non-null <code>order_id</code> entries are considered.</li>
+            <li>Orders the results by <code>order_id</code>.</li>
+        </ul>
+    </section>
+
+    <footer id="contact">
+        <p>For any inquiries or suggestions, please feel free to reach out:</p>
+        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile/">Your LinkedIn</a></p>
+        <p>GitHub: <a href="https://github.com/yourusername">Your GitHub</a></p>
+    </footer>
+</body>
+</html>
+
