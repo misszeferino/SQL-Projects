@@ -18,17 +18,13 @@ This repository serves as a comprehensive resource for SQL queries that can be u
 
 ## Projects
 
-### School Projects
-
-1. **Project Name 1**
-   - Description: Brief description of the project.
+1. **Monitoring Vehicle Odometer Mileage for Monthly Bookings**
+   - Description: Monitor the total mileage recorded on vehicle odometers at the end of each month for every booking.
    - Query File: [Link to query file](path/to/query1.sql)
    
 2. **Project Name 2**
    - Description: Brief description of the project.
    - Query File: [Link to query file](path/to/query2.sql)
-
-### Real Case Scenarios
 
 1. **Scenario Name 1**
    - Description: Brief description of the scenario.
