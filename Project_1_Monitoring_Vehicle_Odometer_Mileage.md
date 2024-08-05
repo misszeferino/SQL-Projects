@@ -24,35 +24,39 @@ The following BigQuery SQL query generates a table with the required calculation
 
 ```java
 WITH 
-  cte AS (
-  SELECT    
-    order_id,
-    user_id,
-    vehicle_id,
-    time,
-    FIRST_VALUE(mileage) OVER w1 AS start_odometer,
-    LAST_VALUE(mileage) OVER w1 AS last_odometer,
-    ROW_NUMBER() OVER(PARTITION BY order_id, EXTRACT(MONTH FROM time) ORDER BY time ASC) AS rank_order
-  FROM
-    `data-analyst-326910.vehicle_km.rt2_corrected3`  
-  WINDOW
-    w1 AS(
-    PARTITION BY order_id, EXTRACT(MONTH FROM time)
-    ORDER BY time ASC ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) )
+  mileage_data AS (
+    SELECT    
+      order_id,                      
+      user_id,                         
+      vehicle_id,                     
+      time,                            
+      FIRST_VALUE(mileage) OVER window1 AS start_odometer,  -- First mileage reading in the window
+      LAST_VALUE(mileage) OVER window1 AS end_odometer,     -- Last mileage reading in the window
+      ROW_NUMBER() OVER(PARTITION BY order_id, EXTRACT(MONTH FROM time) 
+                        ORDER BY time ASC) AS month_rank    -- Rank based on order_id and month
+    FROM
+      `data-analyst-326910.vehicle_km.rt2_corrected3` 
+    WINDOW
+      window1 AS (
+        PARTITION BY order_id, EXTRACT(MONTH FROM time)   -- Partition data by order_id and month
+        ORDER BY time ASC 
+        ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) -- Full range of rows in partition
+  )
 
 SELECT
-  * EXCEPT(rank_order)
+  * EXCEPT(month_rank)                    -- Select all columns except the rank
 FROM (
   SELECT
     *,
-    ROUND(last_odo - start_odo,0) AS total_km
+    ROUND(end_odometer - start_odometer, 0) AS total_km  -- Calculate total kilometers
   FROM
-    cte
+    mileage_data
   WHERE
-    rank_order = 1
-    AND order_id IS NOT NULL
+    month_rank = 1                        -- Only include the first record of each month
+    AND order_id IS NOT NULL              -- Ensure order_id is not null
   ORDER BY
-    order_id)
+    order_id)                             -- Order the results by order_id
+
 
 ```
 
