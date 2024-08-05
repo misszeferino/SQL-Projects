@@ -65,7 +65,7 @@ Explanation:
 * Ranks the records within each order and month to ensure we are capturing the start and end readings correctly.
 
 
-1. Final Query:
+2. Final Query:
 
 * Computes the total kilometers traveled within the month (total\_km) by subtracting the starting odometer reading from the ending odometer reading.  
 * Filters the records to include only the first-ranked entries for each order within each month (to get the initial and final readings).  
