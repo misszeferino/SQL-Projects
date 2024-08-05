@@ -21,6 +21,3 @@ This repository serves as a comprehensive resource for SQL queries that can be u
    - Description: Brief description of the project.
    - Query File: [Link to query file](Project_2_Battery_Alert_System_for_Electric_Vehicles.md)
 
-1. **Scenario Name 1**
-   - Description: Brief description of the scenario.
-   - Query File: [Link to query file](path/to/query
