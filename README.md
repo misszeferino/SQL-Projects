@@ -6,11 +6,6 @@ Welcome to the SQL Queries Repository! This repository contains a collection of 
 
 - [Introduction](#introduction)
 - [Projects](#projects)
-- [Usage](#usage)
-- [Folder Structure](#folder-structure)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
 
 ## Introduction
 
