@@ -1,6 +1,6 @@
 ## Monitoring Vehicle Odometer Mileage for Monthly Bookings
 
-Business Problem:
+Context:
 
 A client needs to monitor the total mileage recorded on vehicle odometers at the end of each month for every booking/user. Vehicles can be booked for periods extending over several months, and the client wants to identify both bookings and users who exceed a specific mileage threshold each month. The goal is to determine the odometer readings at the beginning and end of each month during the booking period.
 
