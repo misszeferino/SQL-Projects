@@ -21,12 +21,12 @@ To determine whether a vehicle has enough battery to return to its starting poin
 
 **Final Table (After Query)**
 
-| timestamp           | order_id | autonomy (km) | latitude  | longitude | distance_from_start (meters) |
+| timestamp           | order_id | autonomy (meters) | latitude  | longitude | distance_from_start (meters) |
 |---------------------|----------|---------------|-----------|-----------|------------------------------|
-| 2024-08-05 08:04:00 | 1        | 95            | 40.7148   | -74.0080  | 5100 (example)               |
-| 2024-08-05 08:06:00 | 1        | 93            | 40.7158   | -74.0090  | 7100 (example)               |
-| 2024-08-05 08:04:00 | 2        | 145           | 34.0528   | -118.2443 | 12000 (example)              |
-| 2024-08-05 08:06:00 | 2        | 143           | 34.0531   | -118.2446 | 17000 (example)              |
+| 2024-08-05 08:04:00 | 1        | 95000            | 40.7148   | -74.0080  | 78000 (example)               |
+| 2024-08-05 08:06:00 | 1        | 93000            | 40.7158   | -74.0090  | 75000 (example)               |
+| 2024-08-05 08:04:00 | 2        | 145000           | 34.0528   | -118.2443 | 117000 (example)              |
+| 2024-08-05 08:06:00 | 2        | 143000           | 34.0531   | -118.2446 | 115000 (example)              |
 
 This table filters records to show only those where the vehicle's distance from the start point exceeds 80% of its autonomy, indicating insufficient battery to return to the start point.
 
@@ -46,12 +46,12 @@ WITH cte AS (
 SELECT
   timestamp,
   order_id,
-  autonomy,
+  autonomy * 1000,  -- autonomy is in km, so convert to meters
   latitude,
   longitude,
   distance_from_start
 FROM cte
-WHERE distance_from_start > (autonomy * 0.80 * 1000) -- autonomy is in km, so convert to meters
+WHERE distance_from_start > (autonomy * 0.80) 
 ORDER BY order_id, timestamp ASC;
 ```
 
