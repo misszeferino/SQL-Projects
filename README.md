@@ -1,6 +1,6 @@
 # SQL Queries Repository
 
-![SQL Queries](https://yourimageurl.com/banner.jpg)
+![SQL Queries]([https://yourimageurl.com/banner.jpg](https://nexacu.com/media/gqfbyjln/sql-banner-min.png))
 
 Welcome to the SQL Queries Repository! This repository contains a collection of SQL queries used for various school projects and real-life scenarios encountered during my work as a Data Analyst.
 
