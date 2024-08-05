@@ -55,7 +55,7 @@ FROM mileage_data
 
 ```
 
-Explanation:
+### Explanation:
 
 1. CTE (Common Table Expression):
 
