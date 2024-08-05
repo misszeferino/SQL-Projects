@@ -2,7 +2,7 @@
 
 A client wants to create an alert system for users whose vehicles have insufficient battery to return to the starting point of their trip. This alert is particularly important for users traveling to remote areas with few or no charging stations, such as mountainous regions.
 
-** Original Table (`vehicle_position`) **
+**Original Table (`vehicle_position`)**
 
 This table captures vehicle data every 2 minutes, including the timestamp, order ID, vehicle autonomy, and its geographical coordinates (latitude and longitude).
 
@@ -19,7 +19,7 @@ This table captures vehicle data every 2 minutes, including the timestamp, order
 
 To determine whether a vehicle has enough battery to return to its starting point, we need to calculate the Haversine distance (straight-line distance) between the vehicle's current location and its start point. If this distance exceeds 80% of the vehicle's autonomy, an alert will be triggered for the client.
 
-** Final Table (After Query) **
+**Final Table (After Query)**
 
 | timestamp           | order_id | autonomy (km) | latitude  | longitude | distance_from_start (meters) |
 |---------------------|----------|---------------|-----------|-----------|------------------------------|
