@@ -1,9 +1,5 @@
 # SQL Queries Repository
 
-![SQL Queries](https://www.dataquest.io/wp-content/uploads/2019/05/sql-tutorial-1.jpg)
-
-
-
 Welcome to the SQL Queries Repository! This repository contains a collection of SQL queries used for various school projects and real-life scenarios encountered during my work as a Data Analyst.
 
 ## Table of Contents
