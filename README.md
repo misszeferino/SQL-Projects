@@ -17,9 +17,9 @@ This repository serves as a comprehensive resource for SQL queries that can be u
    - Description: Monitor the total mileage recorded on vehicle odometers at the end of each month for every booking.
    - Query File: [Link to query file](https://github.com/misszeferino/SQL-Queries/blob/main/Project_1_Monitoring_Vehicle_Odometer_Mileage.md)
    
-2. **Project Name 2**
+2. **Battery Alert System for Electric Vehicles**
    - Description: Brief description of the project.
-   - Query File: [Link to query file](path/to/query2.sql)
+   - Query File: [Link to query file](Project_2_Battery_Alert_System_for_Electric_Vehicles.md)
 
 1. **Scenario Name 1**
    - Description: Brief description of the scenario.
