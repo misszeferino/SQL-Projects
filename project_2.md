@@ -2,7 +2,7 @@
 
 A client wants to create an alert system for users whose vehicles have insufficient battery to return to the starting point of their trip. This alert is particularly important for users traveling to remote areas with few or no charging stations, such as mountainous regions.
 
-### Original Table (`vehicle_position`)
+** Original Table (`vehicle_position`) **
 
 This table captures vehicle data every 2 minutes, including the timestamp, order ID, vehicle autonomy, and its geographical coordinates (latitude and longitude).
 
@@ -19,7 +19,7 @@ This table captures vehicle data every 2 minutes, including the timestamp, order
 
 To determine whether a vehicle has enough battery to return to its starting point, we need to calculate the Haversine distance (straight-line distance) between the vehicle's current location and its start point. If this distance exceeds 80% of the vehicle's autonomy, an alert will be triggered for the client.
 
-### Final Table (After Query)
+** Final Table (After Query) **
 
 | timestamp           | order_id | autonomy (km) | latitude  | longitude | distance_from_start (meters) |
 |---------------------|----------|---------------|-----------|-----------|------------------------------|
@@ -31,8 +31,6 @@ To determine whether a vehicle has enough battery to return to its starting poin
 This table filters records to show only those where the vehicle's distance from the start point exceeds 80% of its autonomy, indicating insufficient battery to return to the start point.
 
 **Note**: A more accurate solution under development will use the driving distance instead of the Haversine distance to determine the vehicle's ability to return to its starting point.
-
-### SQL Query
 
 ```sql
 WITH cte AS (
@@ -59,13 +57,13 @@ ORDER BY order_id, timestamp ASC;
 
 ### SQL Query Explanation
 
-### CTE (Common Table Expression)
+1. CTE (Common Table Expression)
 
 - **Create a geographic point** for each record using latitude and longitude: `ST_GEOGPOINT(longitude, latitude)`.
 - The `FIRST_VALUE` function retrieves the first geographical point for each `order_id`, which represents the start location of each trip.
 - `ST_DISTANCE` computes the straight-line distance between the current location and the start location in meters.
 
-### Main Query
+2. Main Query
 
 - **Filter records** where the distance from the start location is greater than 80% of the vehicle's autonomy. The condition `(cte.distance_from_start > (autonomy * 0.80 * 1000))` ensures that an alert is triggered if the vehicle's distance from the start exceeds 80% of its autonomy, leaving 20% battery for finding a charging station.
 - **Order the results** by `order_id` and `timestamp` to maintain chronological order.
