@@ -32,10 +32,8 @@ WITH
       time,                            
       FIRST_VALUE(mileage) OVER window1 AS start_odometer,  -- First mileage reading in the window
       LAST_VALUE(mileage) OVER window1 AS end_odometer,     -- Last mileage reading in the window
-      ROW_NUMBER() OVER(PARTITION BY order_id, EXTRACT(MONTH FROM time) 
-                        ORDER BY time ASC) AS month_rank    -- Rank based on order_id and month
-    FROM
-      `data-analyst-326910.vehicle_km.rt2_corrected3` 
+      ROW_NUMBER() OVER(PARTITION BY order_id, EXTRACT(MONTH FROM time) ORDER BY time ASC) AS month_rank    -- Rank based on order_id and month
+    FROM `data-analyst-326910.vehicle_km.rt2_corrected3` 
     WINDOW
       window1 AS (
         PARTITION BY order_id, EXTRACT(MONTH FROM time)   -- Partition data by order_id and month
@@ -49,13 +47,10 @@ FROM (
   SELECT
     *,
     ROUND(end_odometer - start_odometer, 0) AS total_km  -- Calculate total kilometers
-  FROM
-    mileage_data
-  WHERE
-    month_rank = 1                        -- Only include the first record of each month
+  FROM mileage_data
+  WHERE month_rank = 1                        -- Only include the first record of each month
     AND order_id IS NOT NULL              -- Ensure order_id is not null
-  ORDER BY
-    order_id)                             -- Order the results by order_id
+  ORDER BY order_id)                             -- Order the results by order_id
 
 
 ```
