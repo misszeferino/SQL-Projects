@@ -19,7 +19,7 @@ This repository serves as a comprehensive resource for SQL queries that can be u
    - Query File: [Link to query file](Project_1_Monitoring_Vehicle_Odometer_Mileage.md)
    
 2. **Battery Alert System for Electric Vehicles**
-   - Description: Identify vehicles have insufficient battery to return to the starting point of their trip
+   - Description: Identify vehicles with insufficient battery to return to the starting point of their trip
    - Tools: BigQuery
    - Query File: [Link to query file](Project_2_Battery_Alert_System_for_Electric_Vehicles.md)
 
