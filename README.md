@@ -11,6 +11,14 @@ Welcome to the SQL Projects Repository! This repository contains a collection of
 
 This repository serves as a comprehensive resource for SQL queries that can be used for educational purposes, practice, and real-world data analysis tasks. Each query is carefully crafted and documented to facilitate understanding and reuse.
 
+## Tools
+<table>
+<tbody>
+<tr>
+<td><a><img src="https://upload.wikimedia.org/wikipedia/fr/6/62/MySQL.svg" alt="MySQL" align="center" width="100"/></a></td>
+</tr>
+</tbody>
+
 ## Projects
 
 1. **Monitoring Vehicle Odometer Mileage for Monthly Bookings**
