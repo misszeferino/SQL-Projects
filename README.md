@@ -1,6 +1,6 @@
-# SQL Queries Repository
+# SQL Projects Repository
 
-Welcome to the SQL Queries Repository! This repository contains a collection of SQL queries used for various school projects and real-life scenarios encountered during my work as a Data Analyst.
+Welcome to the SQL Projects Repository! This repository contains a collection of SQL queries used for various school projects and real-life scenarios encountered during my work as a Data Analyst.
 
 ## Table of Contents
 
