@@ -29,7 +29,6 @@ Dans ce projet, j'ai utilisé les bases de données relationnelles et les requê
 - **Agrégation et Filtrage** : Utilisation de fonctions d'agrégation (COUNT, AVG) et de clauses de filtrage (WHERE, GROUP BY) pour extraire des insights pertinents.
 - **Calculs avancés** : Implémentation de sous-requêtes, de CTE (Common Table Expressions), et de fonctions de fenêtre pour des analyses plus complexes, comme les évolutions de tendances et les comparaisons de prix.
 
-Voici une version actualisée de la section "Démarche et Méthodologie" pour le projet d'analyse des ventes immobilières, adaptée à votre projet :
 
 ### Résultats Clés
 
