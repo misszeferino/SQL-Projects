@@ -23,7 +23,7 @@ This repository serves as a comprehensive resource for SQL queries that can be u
    - Tools: BigQuery
    - Query File: [Link to query file](Project_2_Battery_Alert_System_for_Electric_Vehicles.md)
 
-2. **Analyse des données clients et des performances des vendeurs chez [Olist](https://olist.com/)** (French)
-   - Description: Requêtes SQL pour répondre à des questions spécifiques liées à l’analyse des données clients et des performances des vendeurs
+2. **Customer Data and Seller Performance Analysis at [Olist](https://olist.com/)** (French)
+   - Description: SQL queries to address specific questions related to customer data analysis and seller performance.
    - Tools: SQLite et Python
    - Query File: [Link to query file](Project_3_Analyse_des_données_Olist.ipynb)
