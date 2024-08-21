@@ -13,11 +13,9 @@ This repository serves as a comprehensive resource for SQL queries that can be u
 
 ## Tools
 <table>
-<tbody>
 <tr>
 <td><a><img src="https://upload.wikimedia.org/wikipedia/fr/6/62/MySQL.svg" alt="MySQL" align="center" width="100"/></a></td>
 </tr>
-</tbody>
 
 ## Projects
 
