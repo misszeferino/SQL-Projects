@@ -296,6 +296,10 @@ FROM (
 ) top_villes
 WHERE count <= 3;
 ```
+Détails :
+@count := IF(@dep = dep, @count + 1, 1) : Utilise une variable de session @count pour compter les lignes dans chaque département. Si la ville appartient au même département que la ville précédente (@dep), @count est incrémenté ; sinon, il est réinitialisé à 1.
+@dep := dep : Met à jour la variable de session @dep avec le département actuel pour la comparaison suivante.
+WHERE count <= 3 : Filtre les résultats pour ne conserver que les 3 villes les plus chères par département.
 
 Résultat:
 | Département | Ville                  | Prix Moyen (EUR) |
