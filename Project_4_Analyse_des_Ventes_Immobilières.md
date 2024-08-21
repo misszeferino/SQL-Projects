@@ -9,16 +9,16 @@ Ce projet a été réalisé dans le cadre de mon master en Data Analytics à DST
 
 L'objectif principal de ce projet était d'analyser les tendances du marché immobilier en France en 2020, en répondant aux questions suivantes à l'aide de requêtes MySQL :
 
-1. Réaliser une jointure de 3 tables (Lieu, Bien et Vente)
-2. Nombre total d'appartements vendus au 1er semestre 2020
-3. Proportion des ventes d'appartements par nombre de pièces
-4. Liste des 10 départements où le prix du mètre carré est le plus élevé
-5. Prix moyen du mètre carré d'une maison en Île-de-France
-6. Liste des 10 appartements les plus chers
-7. Taux d'évolution du nombre de ventes entre le premier et le second trimestre 2020
-8. Liste des communes où le nombre de ventes a augmenté d'au moins 20% entre le premier et le second trimestre de 2020
-9. Différence en pourcentage du prix au mètre carré entre un appartement de 2 pièces et un appartement de 3 pièces
-10. Les moyennes de valeurs foncières pour le top 3 des communes des départements 6, 13, 33, 59 et 69
+1. [Réaliser une jointure de 3 tables (Lieu, Bien et Vente)](#1)
+2. [Nombre total d'appartements vendus au 1er semestre 2020](#2)
+3. [Proportion des ventes d'appartements par nombre de pièces](#3)
+4. [Liste des 10 départements où le prix du mètre carré est le plus élevé](#4)
+5. [Prix moyen du mètre carré d'une maison en Île-de-France](#5)
+6. [Liste des 10 appartements les plus chers](#6)
+7. [Taux d'évolution du nombre de ventes entre le premier et le second trimestre 2020](#7)
+8. [Liste des communes où le nombre de ventes a augmenté d'au moins 20% entre le premier et le second trimestre de 2020](#8)
+9. [Différence en pourcentage du prix au mètre carré entre un appartement de 2 pièces et un appartement de 3 pièces](#9)
+10. [Les moyennes de valeurs foncières pour le top 3 des communes des départements 6, 13, 33, 59 et 69](#10)
 
 ### Démarche et Méthodologie
 
@@ -35,7 +35,7 @@ Dans ce projet, j'ai utilisé les bases de données relationnelles et les requê
 - **Disparités Géographiques** : Les départements avec les prix au mètre carré les plus élevés se concentrent principalement en Île-de-France, reflétant une demande accrue dans cette région.
 - **Évolution des Ventes** : Une analyse des tendances de vente a montré une évolution notable entre les trimestres, avec certaines communes enregistrant une augmentation significative des transactions.
 
-### 1. Réaliser une jointure de 3 tables (Lieu, Bien et Vente) :
+### 1. Réaliser une jointure de 3 tables (Lieu, Bien et Vente) <a id='1'></a>
 Intégrer les informations des différentes tables pour obtenir une vue unifiée des données immobilières.
 
 Requête:
@@ -49,7 +49,7 @@ JOIN laplace_immo.vente ON laplace_immo.bien.id_bien = laplace_immo.vente.id_bie
 ![](Images/laplace_immo_1.png)
 
 
-### 2. Nombre total d'appartements vendus au 1er semestre 2020
+### 2. Nombre total d'appartements vendus au 1er semestre 2020 <a id='2'></a>
 Identifier le volume des transactions immobilières pour les appartements au cours du premier semestre 2020.
 
 Requête:
@@ -71,7 +71,7 @@ Résultat:
 |-------|------------|----------|-----------|
 | 2020  | Appartement | 1        | 31362     |
 
-### 3. Proportion des ventes d'appartements par nombre de pièces
+### 3. Proportion des ventes d'appartements par nombre de pièces <a id='3'></a>
 Analyser la distribution des ventes en fonction du nombre de pièces dans les appartements.
 
 Requête:
@@ -103,7 +103,7 @@ Résultat:
 | Appartement  | 11               | 0.00     |
 
 
-### 4. Liste des 10 départements où le prix du mètre carré est le plus élevé
+### 4. Liste des 10 départements où le prix du mètre carré est le plus élevé <a id='4'></a>
 Identifier les zones géographiques les plus chères en termes de prix au mètre carré.
 
 Requête:
@@ -131,7 +131,7 @@ Résultat:
 | 33          | 3762                 |
 
 
-### 5. Prix moyen du mètre carré d'une maison en Île-de-France
+### 5. Prix moyen du mètre carré d'une maison en Île-de-France <a id='5'></a>
 Calculer le prix moyen au mètre carré pour les maisons dans les départements de la région Île-de-France.
 
 Requête:
@@ -158,7 +158,7 @@ Résultat:
 | 77          | Maison | 2829                 |
 
 
-### 6. Liste des 10 appartements les plus chers
+### 6. Liste des 10 appartements les plus chers <a id='6'></a>
 Identifier les appartements les plus onéreux en France, en tenant compte du département et de la surface.
 
 Requête:
@@ -187,7 +187,7 @@ Résultat:
 | 75          | Appartement | 122.56       | 7050000  |
 | 75          | Appartement | 79.38        | 6600000  |
 
-### 7. Taux d'évolution du nombre de ventes entre le premier et le second trimestre 2020
+### 7. Taux d'évolution du nombre de ventes entre le premier et le second trimestre 2020 <a id='7'></a>
 Mesurer l'évolution des ventes immobilières entre ces deux périodes.
 
 Requête:
@@ -216,7 +216,7 @@ Résultat:
 | 2020  | 2         | 17382            | 3.5                   |
 
 
-### 8. Liste des communes où le nombre de ventes a augmenté d'au moins 20% entre le premier et le second trimestre de 2020
+### 8. Liste des communes où le nombre de ventes a augmenté d'au moins 20% entre le premier et le second trimestre de 2020 <a id='8'></a>
 Identifier les zones avec une augmentation significative des ventes.
 
 Requête:
@@ -241,7 +241,7 @@ ORDER BY ville
 
 ![](Images/laplace_immo_8.png)
 
-### 9. Différence en pourcentage du prix au mètre carré entre un appartement de 2 pièces et un appartement de 3 pièces
+### 9. Différence en pourcentage du prix au mètre carré entre un appartement de 2 pièces et un appartement de 3 pièces <a id='9'></a>
 Comparer les prix entre différents types d'appartements.
 
 Requête:
@@ -272,7 +272,7 @@ Résultat:
 |-------------|------------------|----------------------|------------------|
 | Appartement  | 2                | 4908.6               | 12.4             |
 
-### 10. Les moyennes de valeurs foncières pour le top 3 des communes des départements 6, 13, 33, 59 et 69
+### 10. Les moyennes de valeurs foncières pour le top 3 des communes des départements 6, 13, 33, 59 et 69 <a id='10'></a>
 Analyser les communes les plus chères dans certains départements spécifiques.
 
 Requête:
