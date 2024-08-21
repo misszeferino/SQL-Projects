@@ -1,4 +1,4 @@
-## Analyse des ventes immobilières en France: 
+## Analyse des ventes immobilières en France
 ### Une étude SQL avec les données de LaplaceImmo
 
 ### Introduction
