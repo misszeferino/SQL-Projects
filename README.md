@@ -16,7 +16,7 @@ This repository serves as a comprehensive resource for SQL queries that can be u
 <tr>
 <td><a href="#"><img src="https://upload.wikimedia.org/wikipedia/fr/6/62/MySQL.svg" alt="MySQL" align="center" width="100"/></a></td>
 <td><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Google_BigQuery_logo.svg/1200px-Google_BigQuery_logo.svg.png" alt="BigQuery" align="center" width="100"/></a></td>
-<td><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/SQLite_logo.svg/1920px-SQLite_logo.svg.png" alt="SQLite" align="center" width="100"/></a></td>
+<td><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/SQLite_Logo.svg" alt="SQLite" align="center" width="100"/></a></td>
 <td><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="Python" align="center" width="100"/></a></td>
 </tr>
 </table>
