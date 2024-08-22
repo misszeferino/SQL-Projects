@@ -38,7 +38,7 @@ This repository serves as a comprehensive resource for SQL queries that can be u
 
 3. **Customer Data and Seller Performance Analysis at [Olist](https://olist.com/)** (French)
    - Industry: E-commerce
-   - Description: SQL queries to address specific questions related to customer data analysis and seller performance.
+   - Description: SQL queries to address specific questions related to customer purchases and seller performance.
    - Tools: SQLite et Python
    - Project File: [Link to query file](Project_3_Analyse_des_données_Olist.ipynb)
 
