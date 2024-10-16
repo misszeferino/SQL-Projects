@@ -52,6 +52,6 @@ This repository serves as a comprehensive resource for SQL queries that can be u
 ## Contact
 If you have any questions or would like to discuss my work further, feel free to reach out:
 
-- [LinkedIn](https://www.linkedin.com/](https://www.linkedin.com/in/misszeferino/)
+- [LinkedIn](https://www.linkedin.com/in/misszeferino/)
 
 Thank you for visiting my repository, and I hope you find these projects insightful!
