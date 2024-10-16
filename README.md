@@ -47,3 +47,11 @@ This repository serves as a comprehensive resource for SQL queries that can be u
    - Description: This project focuses on analyzing real estate sales across France using data from Laplace Immo. The study utilizes SQL queries to explore various aspects of the property market, such as geographic distribution, price per square meter, and sales trends over time.
    - Tools: MySQL
    - Project File: [Link to query file](Project_4_Analyse_des_ventes_immobilières.md)
+
+
+## Contact
+If you have any questions or would like to discuss my work further, feel free to reach out:
+
+- [LinkedIn]([https://www.linkedin.com/](https://www.linkedin.com/in/misszeferino/))
+
+Thank you for visiting my repository, and I hope you find these projects insightful!
