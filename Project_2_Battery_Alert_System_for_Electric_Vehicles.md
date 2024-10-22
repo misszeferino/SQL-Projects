@@ -23,10 +23,10 @@ To determine whether a vehicle has enough battery to return to its starting poin
 
 | timestamp           | order_id | autonomy (meters) | latitude  | longitude | distance_from_start (meters) |
 |---------------------|----------|---------------|-----------|-----------|------------------------------|
-| 2024-08-05 08:04:00 | 1        | 95000            | 40.7148   | -74.0080  | 78000 (example)               |
-| 2024-08-05 08:06:00 | 1        | 93000            | 40.7158   | -74.0090  | 75000 (example)               |
-| 2024-08-05 08:04:00 | 2        | 145000           | 34.0528   | -118.2443 | 117000 (example)              |
-| 2024-08-05 08:06:00 | 2        | 143000           | 34.0531   | -118.2446 | 115000 (example)              |
+| 2024-08-05 08:04:00 | 1        | 95000            | 40.7148   | -74.0080  | 75000 (example)               |
+| 2024-08-05 08:06:00 | 1        | 93000            | 40.7158   | -74.0090  | 78000 (example)               |
+| 2024-08-05 08:04:00 | 2        | 145000           | 34.0528   | -118.2443 | 115000 (example)              |
+| 2024-08-05 08:06:00 | 2        | 143000           | 34.0531   | -118.2446 | 117000 (example)              |
 
 This table filters records to show only those where the vehicle's distance from the start point exceeds 80% of its autonomy, indicating insufficient battery to return to the start point.
 
